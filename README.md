@@ -1,17 +1,9 @@
-### 🙋‍♂️ Made by [@thekitze](https://twitter.com/thekitze), improved by [@rip212](https://twitter.com/rip212)
+### 🙋‍♂️ fork by [react-hanger](https://github.com/kitze/react-hanger)
 
 
-### Other projects:
 
-- 🏫 [React Academy](https://reactacademy.io) - Interactive React and GraphQL workshops
-- 💌 [Twizzy](https://twizzy.app) - A standalone app for Twitter DM
-- 💻 [Sizzy](https://sizzy.co) - A tool for testing responsive design on multiple devices at once
-- 🤖 [JSUI](https://github.com/kitze/JSUI) - A powerful UI toolkit for managing JavaScript apps
-
----
-
-# react-hanger
-[![npm version](https://badge.fury.io/js/react-hanger.svg)](https://badge.fury.io/js/react-hanger)
+# gm-react-hanger
+[![npm version](https://badge.fury.io/js/gm-react-hanger.svg)](https://badge.fury.io/js/gm-react-hanger)
 
 Set of a helpful hooks, for different specific to some primitives types state changing helpers.
 Has two APIs:
@@ -23,7 +15,7 @@ Has two APIs:
 ## Install
 
 ```bash
-yarn add react-hanger
+yarn add gm-react-hanger
 ```
 
 ## Usage
@@ -227,26 +219,28 @@ const Counter = () => {
 };
 ```
 
-## Migration from v1 to v2
+### useActions
 
-- Migration to array based API is a bit more complex but recommended (especially if you're using ESLint rules for hooks). 
-Take a look at [this section](./README-ARRAY.md#migration-from-object-to-array-based) in array API docs.
-- All lifecycle helpers are removed. Please replace `useOnMount`, `useOnUnmount` and `useLifecycleHooks` with `useEffect`.
-This:
-```javascript
-useOnMount(() => console.log("I'm mounted!"))
-useOnUnmount(() =>  console.log("I'm unmounted"))
-// OR
-useLifecycleHooks({ 
-  onMount: () => console.log("I'm mounted!"),
-  onUnmount: () => console.log("I'm unmounted!") 
-})
+return bound dispatch actions
+
+```ts
+  const { action1, action2 } = useActions(actions);
+  // dispatch action
+  action1();
 ```
-to:
-```javascript
-useEffect(() => {
-  console.log("I'm mounted!");
-  return () =>  console.log("I'm unmounted");
-}, []);
+
+### useDebounce
+see  [lodash debounce](https://lodash.com/docs/4.17.11#debounce)
+
+```ts
+  const fetch = () {...};
+  const debounceFetch = useDebounce(fetch);
 ```
-- `bind` and `bindToInput` are got renamed to `valueBind` and `eventBind` respectively on `useInput` hook
+
+### useShallowEqualSelector
+see  [react-redux hooks api](https://react-redux.js.org/api/hooks#recipe-useshallowequalselector)
+
+
+
+
+
