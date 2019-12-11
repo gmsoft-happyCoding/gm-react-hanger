@@ -28,7 +28,7 @@ const saveSelfState = debounce(
   },
 );
 
-const useRecover = (history: History<any>) => {
+export const useRestore = (history: History<any>) => {
   /**
    *  save location to top
    */
@@ -84,4 +84,4 @@ const useRecover = (history: History<any>) => {
   }, [history]);
 };
 
-export default useRecover;
+export default useRestore;
