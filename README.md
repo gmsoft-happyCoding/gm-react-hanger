@@ -1,16 +1,15 @@
 ### 🙋‍♂️ fork by [react-hanger](https://github.com/kitze/react-hanger)
 
-
-
 # gm-react-hanger
+
 [![npm version](https://badge.fury.io/js/gm-react-hanger.svg)](https://badge.fury.io/js/gm-react-hanger)
 
 Set of a helpful hooks, for different specific to some primitives types state changing helpers.
 Has two APIs:
-- [First](#Example) and original from v1 is based on object destructuring e.g. `const { value, toggle } = useBoolean(false)` (Docs below)
-- [Second API](./README-ARRAY.md) (recommended [why?](./README-ARRAY.md#migration-from-object-to-array-based)) is based on more idiomatic to React hooks API, e.g. like `useState` with array destructuring 
-`const [value, actions] = useBoolean(false)` [(Docs)](./README-ARRAY.md)
 
+- [First](#Example) and original from v1 is based on object destructuring e.g. `const { value, toggle } = useBoolean(false)` (Docs below)
+- [Second API](./README-ARRAY.md) (recommended [why?](./README-ARRAY.md#migration-from-object-to-array-based)) is based on more idiomatic to React hooks API, e.g. like `useState` with array destructuring
+  `const [value, actions] = useBoolean(false)` [(Docs)](./README-ARRAY.md)
 
 ## Install
 
@@ -21,28 +20,21 @@ yarn add gm-react-hanger
 ## Usage
 
 ```jsx
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import {
-  useInput,
-  useBoolean,
-  useNumber,
-  useArray,
-  useOnMount,
-  useOnUnmount
-} from "react-hanger";
+import { useInput, useBoolean, useNumber, useArray, useOnMount, useOnUnmount } from 'react-hanger';
 
 const App = () => {
-  const newTodo = useInput("");
+  const newTodo = useInput('');
   const showCounter = useBoolean(true);
   const limitedNumber = useNumber(3, { lowerLimit: 0, upperLimit: 5 });
   const counter = useNumber(0);
-  const todos = useArray(["hi there", "sup", "world"]);
+  const todos = useArray(['hi there', 'sup', 'world']);
 
   const rotatingNumber = useNumber(0, {
     lowerLimit: 0,
     upperLimit: 4,
-    loop: true
+    loop: true,
   });
 
   return (
@@ -77,9 +69,9 @@ Just an alternative syntax to `useState`, because it doesn't need array destruct
 It returns an object with `value` and a `setValue` method.
 
 ```jsx
-const username = useStateful("test");
+const username = useStateful('test');
 
-username.setValue("tom");
+username.setValue('tom');
 console.log(username.value);
 ```
 
@@ -103,7 +95,7 @@ const limitedNumber = useNumber(3, { upperLimit: 5, lowerLimit: 3 });
 const rotatingNumber = useNumber(0, {
   upperLimit: 5,
   lowerLimit: 0,
-  loop: true
+  loop: true,
 });
 ```
 
@@ -124,7 +116,7 @@ Options:
 ### useInput
 
 ```jsx
-const newTodo = useInput("");
+const newTodo = useInput('');
 ```
 
 ```jsx
@@ -159,11 +151,12 @@ Methods:
 - `clear`
 - `removeIndex`
 - `removeById` - if array consists of objects with some specific `id` that you pass
-all of them will be removed
-- `move` - moves item from position to position shifting other elements. 
+  all of them will be removed
+- `move` - moves item from position to position shifting other elements.
+
 ```
     So if input is [1, 2, 3, 4, 5]
-    
+
     from  | to    | expected
     3     | 0     | [4, 1, 2, 3, 5]
     -1    | 0     | [5, 1, 2, 3, 4]
@@ -174,8 +167,8 @@ all of them will be removed
 ### useMap
 
 ```jsx
-const { value, set } = useMap([["key", "value"]]);
-const { value: anotherValue, remove } = useMap(new Map([["key", "value"]]));
+const { value, set } = useMap([['key', 'value']]);
+const { value: anotherValue, remove } = useMap(new Map([['key', 'value']]));
 ```
 
 Actions:
@@ -224,13 +217,14 @@ const Counter = () => {
 return bound dispatch actions
 
 ```ts
-  const { action1, action2 } = useActions(actions);
-  // dispatch action
-  action1();
+const { action1, action2 } = useActions(actions);
+// dispatch action
+action1();
 ```
 
 ### useDebounce
-see  [lodash debounce](https://lodash.com/docs/4.17.11#debounce)
+
+see [lodash debounce](https://lodash.com/docs/4.17.11#debounce)
 
 ```ts
   const fetch = () {...};
@@ -238,9 +232,22 @@ see  [lodash debounce](https://lodash.com/docs/4.17.11#debounce)
 ```
 
 ### useShallowEqualSelector
-see  [react-redux hooks api](https://react-redux.js.org/api/hooks#recipe-useshallowequalselector)
 
+see [react-redux hooks api](https://react-redux.js.org/api/hooks#recipe-useshallowequalselector)
 
+### useRestore
 
+```ts
+/**
+ * save the current application state to top.history.state
+ * restore the status of the application when refreshing or rebounding
+ */
+  const App = () => {
+    /**
+     * react-router history, In general: stateContainer._history
+     */
+    useRestore(history);
+     ...
+  }
 
-
+```
