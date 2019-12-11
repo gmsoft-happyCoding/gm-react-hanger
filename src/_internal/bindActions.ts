@@ -1,6 +1,6 @@
 import { bindActionCreators, Dispatch } from 'redux';
 
-export default function<AS> (actions: AS, dispatch: Dispatch<any>) {
+export default function<AS>(actions: AS, dispatch: Dispatch<any>) {
   const boundActionCreators = {};
   // 遍历 actions, 为了绑定 async action
   // eslint-disable-next-line no-restricted-syntax
