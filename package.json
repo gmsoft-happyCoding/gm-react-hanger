@@ -35,6 +35,7 @@
     "react-redux": "^7.0.1"
   },
   "devDependencies": {
+    "@types/history": "^4.7.3",
     "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.134",
     "@types/react": "^16.8.13",
@@ -68,5 +69,8 @@
   },
   "favoriteScripts": [
     "test:watch"
-  ]
+  ],
+  "dependencies": {
+    "history-helper": "^1.0.3"
+  }
 }
