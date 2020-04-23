@@ -251,3 +251,7 @@ see [react-redux hooks api](https://react-redux.js.org/api/hooks#recipe-useshall
   }
 
 ```
+
+### useInterval
+
+see [Making setInterval Declarative with React Hooks](https://overreacted.io/zh-hans/making-setinterval-declarative-with-react-hooks/)

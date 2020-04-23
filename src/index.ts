@@ -12,3 +12,4 @@ export * from './useActions';
 export * from './useDebounceActions';
 export * from './useShallowEqualSelector';
 export * from './useRestore';
+export * from './useInterval';
