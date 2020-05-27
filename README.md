@@ -255,3 +255,21 @@ see [react-redux hooks api](https://react-redux.js.org/api/hooks#recipe-useshall
 ### useInterval
 
 see [Making setInterval Declarative with React Hooks](https://overreacted.io/zh-hans/making-setinterval-declarative-with-react-hooks/)
+
+### useCountdown
+
+```ts
+  const { rt, start } = useCountdown(SECOND);
+
+  const [text, setText] = useState('发送验证码');
+
+  useEffect(() => {
+    if (rt > 0) {
+      setText(`${rt}秒后重试`);
+    } else {
+      setText('发送验证码');
+    }
+  }, [rt]);
+
+  // button click -> start
+```
