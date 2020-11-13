@@ -1935,10 +1935,10 @@ has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-history-helper@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.npm.taobao.org/history-helper/download/history-helper-1.0.3.tgz#10a4acfad6486b818cff5c2ea8b7225beb3d4d42"
-  integrity sha1-EKSs+tZIa4GM/1wuqLciW+s9TUI=
+history-helper@1.0.4:
+  version "1.0.4"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/history-helper/-/history-helper-1.0.4.tgz#828e5949370f5d29b693c24b8df9b922628a1fbe"
+  integrity sha512-V8E+WjFcy3u7pVaVrQbUD3nA7u/INdarwxZLyr0flSB/ENW66ZW3YOU5zpG0KMd/RS2YpAWNXDRki95dq+FFJg==
 
 hoist-non-react-statics@^3.3.0:
   version "3.3.0"

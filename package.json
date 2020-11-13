@@ -71,6 +71,6 @@
     "test:watch"
   ],
   "dependencies": {
-    "history-helper": "^1.0.3"
+    "history-helper": "1.0.4"
   }
 }

@@ -10,7 +10,12 @@ import { debounce } from 'lodash';
 import HistoryHelper from 'history-helper';
 
 const STATE_KEY = 'RESTORE_INNER_APP';
-const topHistoryHelper = new HistoryHelper(STATE_KEY, top.history);
+let topHistoryHelper: HistoryHelper;
+try {
+  topHistoryHelper = new HistoryHelper(STATE_KEY, top.history);
+} catch (e) {
+  // nothing
+}
 
 interface State {
   location: Location<any>;
@@ -19,7 +24,7 @@ interface State {
 
 const saveSelfState = debounce(
   (selfState: any) => {
-    if (self !== top) topHistoryHelper.mergeState({ selfState });
+    if (self !== top && topHistoryHelper) topHistoryHelper.mergeState({ selfState });
   },
   1000,
   {
@@ -34,7 +39,7 @@ export const useRestore = (history: History<any>) => {
    */
   useEffect(() => {
     // in top window
-    if (self === top) return;
+    if (self === top || !topHistoryHelper) return;
 
     // Listen for changes to the current location.
     return history.listen(location => topHistoryHelper.mergeState({ location }));
@@ -46,7 +51,7 @@ export const useRestore = (history: History<any>) => {
    */
   useEffect(() => {
     // in top window
-    if (self === top) return;
+    if (self === top || !topHistoryHelper) return;
 
     const originalReplaceState = self.history.replaceState;
 
@@ -73,7 +78,7 @@ export const useRestore = (history: History<any>) => {
    */
   useEffect(() => {
     // in top window
-    if (self === top) return;
+    if (self === top || !topHistoryHelper) return;
 
     const state = topHistoryHelper.getState();
     if (state) {
