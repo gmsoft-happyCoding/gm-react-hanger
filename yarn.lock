@@ -1935,10 +1935,10 @@ has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-history-helper@1.0.4:
-  version "1.0.4"
-  resolved "http://192.168.2.10:8081/repository/npm.gm/history-helper/-/history-helper-1.0.4.tgz#828e5949370f5d29b693c24b8df9b922628a1fbe"
-  integrity sha512-V8E+WjFcy3u7pVaVrQbUD3nA7u/INdarwxZLyr0flSB/ENW66ZW3YOU5zpG0KMd/RS2YpAWNXDRki95dq+FFJg==
+history-helper@1.1.1:
+  version "1.1.1"
+  resolved "http://192.168.2.10:8081/repository/npm.gm/history-helper/-/history-helper-1.1.1.tgz#a9f7871a225bcdcbbdde17e541beacb665f4bb1e"
+  integrity sha512-Fy5fMtPVaU90P2V50BkmzrnkCmI7UY26Vb4+l8V42sKde0CPNiBKHPQa3UOOsmtzKpSctfEMAnOvMH0325/Hwg==
 
 hoist-non-react-statics@^3.3.0:
   version "3.3.0"
